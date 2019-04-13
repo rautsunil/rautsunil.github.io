@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>So you built a Machine Learning model? - Sunil Raut</title>
+  <link href="/atom.xml" rel="alternate" title="Sunil Raut" type="application/atom+xml" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="/css/syntax.css" />
+  <link rel="stylesheet" href="/js/icons/style.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" id="font-bitter-css" href="https://fonts.googleapis.com/css?family=Bitter:400,700" type="text/css" media="screen" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/contents/fav.png" />
+  <link rel="search" type="application/opensearchdescription+xml" title="sourabhbajaj.com" href="/opensearch.xml" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://localhost:4000/blog/2017/03/16/so-you-built-a-machine-learning-model/" />
+  <meta property="og:title" content="So you built a Machine Learning model?" />
+  <meta property="og:description" content="You have been working on a Machine Learning project. You notice you are getting about 80% accuracy on your test set which is less than what you desire. Now what? How do you improve the model?" />
+  <meta property="og:image" content="https://sourabhbajaj.com/images/contents/NN.png" />
+
+  <meta name="twitter:site" value="@RautsunilSunil" />
+  <meta property="twitter:title" content="So you built a Machine Learning model?" />
+  <meta property="twitter:description" content="You have been working on a Machine Learning project. You notice you are getting about 80% accuracy on your test set which is less than what you desire. Now what? How do you improve the model?" />
+  <meta property="twitter:image" content="https://sourabhbajaj.com/images/contents/NN.png"/>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40495390-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40495390-2');
+  </script>
+  <script>
+    var trackOutboundLink = function(url) {
+      gtag('event', 'click', {
+        'event_category': 'outbound',
+        'event_label': url,
+        'transport_type': 'beacon',
+        'event_callback': function(){document.location = url;}
+      });
+    }
+  </script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="So you built a Machine Learning model?" />
+<meta name="author" content="Sunil Raut" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="You have been working on a Machine Learning project. You notice you are getting about 80% accuracy on your test set which is less than what you desire. Now what? How do you improve the model?" />
+<meta property="og:description" content="You have been working on a Machine Learning project. You notice you are getting about 80% accuracy on your test set which is less than what you desire. Now what? How do you improve the model?" />
+<link rel="canonical" href="http://localhost:4000/blog/2017/03/16/so-you-built-a-machine-learning-model/" />
+<meta property="og:url" content="http://localhost:4000/blog/2017/03/16/so-you-built-a-machine-learning-model/" />
+<meta property="og:site_name" content="Sunil Raut" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-03-16T00:00:00+05:30" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@RautsunilSunil" />
+<meta name="twitter:creator" content="@Sunil Raut" />
+<script type="application/ld+json">
+{"description":"You have been working on a Machine Learning project. You notice you are getting about 80% accuracy on your test set which is less than what you desire. Now what? How do you improve the model?","author":{"@type":"Person","name":"Sunil Raut"},"@type":"BlogPosting","url":"http://localhost:4000/blog/2017/03/16/so-you-built-a-machine-learning-model/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/images/contents/0.png"},"name":"Sunil Raut"},"headline":"So you built a Machine Learning model?","dateModified":"2017-03-16T00:00:00+05:30","datePublished":"2017-03-16T00:00:00+05:30","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/2017/03/16/so-you-built-a-machine-learning-model/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body class="">
+  <div id="container">
+    <div class="wrap">
+    <div id="header">
+      <div id="branding">
+        <h1 id="site-title">
+          <a href="/" title="Sunil Raut" rel="Home">Sunil Raut</a>
+        </h1>
+      </div>
+
+      <div id="menu-primary" class="menu-container">
+        <div class="menu">
+          <ul id="menu-primary-items">
+            <li class="menu-item home"><a class="spec" href="/">Home</a></li>
+            <li class="menu-item projects"><a class="spec" href="/projects">Projects</a></li>
+            <li class="menu-item talks"><a class="spec" href="/talks">Talks</a></li>
+            <li class="menu-item blog"><a class="spec" href="/blog/">Blog</a></li>
+            <li class="menu-item github"><a class="spec" href="https://github.com/rautsunil" target="_blank">Github</a></li>
+            <li class="menu-item rss">
+              <div class="rss-button">
+                <a href="/atom.xml" target="_blank">
+                  <img src="/images/social/RSSButton.png" alt="RSS Feed" height="20px"/>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    <div id="main">
+
+
+<div id="content">
+  <div class="hfeed">
+    <div class="hentry post">
+      <div class="post-content">
+        <div class="sticky-header">
+          <h1>So you built a Machine Learning model?</h1>
+          
+          <div class="byline">March 16, 2017 . <a href="/blog/categories.html#Machine Learning" class="category">Machine Learning</a></div>
+        </div>
+
+        <div id="toc" class="toc"></div>
+
+        <div class="entry-content">
+          <p>You have been working on a Machine Learning project. You collected data from various sources, built your model and got some preliminary results. You notice you are getting about 80% accuracy on your test set which is less than what you desire. Now what? How do you improve the model?</p>
+
+<p>Should you get more data? Build a more complex model? Increase or decrease regularization? Add or remove features? Run more iterations of gradient descent? Maybe try all of them?</p>
+
+<p>Recently I got this question from a friend, who said it seemed that improving models is just hit and trial. This prompted me to write this post on how to make an informed decision about what should you work on first.</p>
+
+<h2 id="bias-and-variance">Bias and Variance</h2>
+<p>To build a more accurate model, we first need to learn what are the different sources of error in our model.</p>
+
+<p><strong>Bias</strong>: The error due to bias is taken as the difference between the expected (or average) prediction of our model and the correct value which we are trying to predict.</p>
+
+<p><strong>Variance</strong>: The error due to variance is taken as the variability of a model prediction for a given data point.</p>
+
+<p><img src="/images/blog/2017-03/bias-variance.png" alt="Bias Variance" /></p>
+
+<h3 id="mathematical-definition">Mathematical definition</h3>
+<p>We are trying to predict <script type="math/tex">Y</script> and our input is <script type="math/tex">X</script>. Let’s assume there is a relationship relating one to the other such as <script type="math/tex">Y = f(X) + \epsilon</script> where the error term <script type="math/tex">\epsilon</script> is normally distributed with a mean of zero like so <script type="math/tex">\epsilon \sim \mathcal{N}(0,\sigma_\epsilon)</script>.</p>
+
+<p>We may estimate a model <script type="math/tex">\hat{f}(X)</script> of <script type="math/tex">f(X)</script> using linear regressions or another modeling technique. Then, the expected squared prediction error at a point <script type="math/tex">x</script> is:</p>
+
+<script type="math/tex; mode=display">Err(x) = E\left[(Y-\hat{f}(x))^2\right]</script>
+
+<p>The error can be split into bias and variance components:</p>
+
+<script type="math/tex; mode=display">Err(x) = \left(E[\hat{f}(x)]-f(x)\right)^2 + E\left[\left(\hat{f}(x)-E[\hat{f}(x)]\right)^2\right] +\sigma_e^2</script>
+
+<script type="math/tex; mode=display">Err(x) = \mathrm{Bias}^2 + \mathrm{Variance} + \mathrm{Irreducible\ Error}</script>
+
+<p><img src="/images/blog/2017-03/error.png" align="left" alt="Irreducible error" style="width: 40%; margin-left:5%; margin-right:5%; margin-top:20px; margin-bottom:20px;" /></p>
+
+<p>The irreducible error is the noise term in the true relationship that cannot be fundamentally reduced by any model. Given the true model and infinite data to calibrate it, we should be able to reduce both the bias and variance terms to 0. However, in a world with imperfect models and finite data, there is a tradeoff between minimizing the bias and minimizing the variance.</p>
+
+<h2 id="what-are-learning-curves">What are Learning Curves?</h2>
+<p>Now we know about Bias and Variance and the tradeoff between the two, but the problem of how to improve our model still remains. What is our model suffering from - high bias or high variance? To answer this we need to plot Learning curves for the model.</p>
+
+<h3 id="high-bias">High Bias</h3>
+<ul>
+  <li>Low training set size: <script type="math/tex">J_{train}(\Theta)</script> will be low and <script type="math/tex">J_{CV}(\Theta)</script> will be high</li>
+  <li>Large training set size: <script type="math/tex">J_{train}(\Theta)</script> and <script type="math/tex">J_{CV}(\Theta)</script> will be high with <script type="math/tex">J_{train}(\Theta) \approx J_{CV}(\Theta)</script></li>
+</ul>
+
+<h3 id="high-variance">High Variance</h3>
+<ul>
+  <li>Low training set size: causes <script type="math/tex">J_{train}(\Theta)</script> will be low and <script type="math/tex">J_{CV}(\Theta)</script> will be high</li>
+  <li>Large training set size: <script type="math/tex">J_{train}(\Theta)</script> increases with training set size and <script type="math/tex">J_{CV}(\Theta)</script> continues to decrease without leveling off. <script type="math/tex">% <![CDATA[
+J_{train}(\Theta) < J_{CV}(\Theta) %]]></script> but the difference between them remains significant</li>
+</ul>
+
+<p><img src="/images/blog/2017-03/high_bias.png" align="left" alt="High bias learning curve" style="width: 48%; margin-top:20px; margin-bottom:50px;" />
+<img src="/images/blog/2017-03/high_variance.png" align="right" alt="High variance learning curve" style="width: 48%; margin-top:20px; margin-bottom:50px;" /></p>
+
+<h2 id="what-to-do-next">What to do next?</h2>
+<p>We have figured out if we have a bias problem or a variance one. We can make an informed choice about what to work on next.</p>
+
+<h3 id="high-bias-1">High Bias</h3>
+<ul>
+  <li>Try more complex features, polynomial terms or adding more nodes</li>
+  <li>Decreasing the regularization parameter <script type="math/tex">\lambda</script></li>
+</ul>
+
+<h3 id="high-variance-1">High Variance</h3>
+<ul>
+  <li>Collecting more training data as that will help the model generalize better</li>
+  <li>Reducing the feature set size</li>
+  <li>Increasing the regularization parameter <script type="math/tex">\lambda</script></li>
+</ul>
+
+<p><img src="/images/blog/2017-03/flowchart.png" alt="Next steps flow chart" style="width: 70%; margin-left:10%; margin-right:10%; margin-top:20px; margin-bottom:10px;" /></p>
+
+<h2 id="what-if-i-have-an-ml-pipeline">What if I have an ML pipeline?</h2>
+<p>As most machine learning systems are built using a chain of models. It is fairly common to have a scenario where you have an ML pipeline and want to figure out which part to work on next? Ceiling Analysis can be useful here.</p>
+
+<p>For Ceiling Analysis plug in a perfect version for each component of the pipeline one at a time and then measure how much improvement do we see in the complete pipeline. This can give us a sense of working on which component gives us the highest bang for the buck.</p>
+
+<p><img src="/images/blog/2017-03/pipeline.png" alt="Pipeline" /></p>
+
+<p>Let’s say in the above character detection pipeline you observe that a perfect character segmentation system gives a 1% boost to the overall system while a perfect character recognition system will provide a 7% boost. So we should focus on improving the recognition system much more so than the segmentation model.</p>
+
+<h2 id="references">References</h2>
+<ul>
+  <li><a href="https://www.coursera.org/learn/machine-learning">Machine Learning</a> class on Coursera</li>
+  <li><a href="http://www-stat.stanford.edu/~tibs/ElemStatLearn/">The Elements of Statistical Learning</a></li>
+  <li><a href="https://www.amazon.com/Pattern-Recognition-Learning-Information-Statistics/dp/0387310738">Pattern Recognition and Machine Learning </a></li>
+  <li><a href="http://scott.fortmann-roe.com/docs/BiasVariance.html">Understanding the Bias-Variance Tradeoff</a></li>
+</ul>
+
+        </div>
+
+        <div class="sharebuttons">
+  <hr />
+  <ul>
+    <li>
+      <p class="sharetitle"> Share this: </p>
+    </li>
+    <li class="reddit">
+      <a href="http://www.reddit.com/submit?url=http://localhost:4000/blog/2017/03/16/so-you-built-a-machine-learning-model/&title=So%20you%20built%20a%20Machine%20Learning%20model?" target="_blank" onclick="trackOutboundLink('http://www.reddit.com/submit?url=/blog/2017/03/16/so-you-built-a-machine-learning-model/');">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1067 1129q13 13 0 26-53 53-171 53t-171-53q-13-13 0-26 5-6 13-6t13 6q42 42 145 42t145-42q5-6 13-6t13 6zm-263-156q0 31-23 54t-54 23-54-23-23-54q0-32 22.5-54.5t54.5-22.5 54.5 22.5 22.5 54.5zm338 0q0 31-23 54t-54 23-54-23-23-54q0-32 22.5-54.5t54.5-22.5 54.5 22.5 22.5 54.5zm215-103q0-42-30-72t-73-30q-42 0-73 31-113-78-267-82l54-243 171 39q1 32 23.5 54t53.5 22q32 0 54.5-22.5t22.5-54.5-22.5-54.5-54.5-22.5q-48 0-69 43l-189-42q-17-5-21 13l-60 268q-154 6-265 83-30-32-74-32-43 0-73 30t-30 72q0 30 16 55t42 38q-5 25-5 48 0 122 120 208.5t289 86.5q170 0 290-86.5t120-208.5q0-25-6-49 25-13 40.5-37.5t15.5-54.5zm307-454v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/></svg>
+      </a>
+    </li>
+    <li class="hn">
+      <a href="http://news.ycombinator.com/submitlink?u=http://localhost:4000/blog/2017/03/16/so-you-built-a-machine-learning-model/&t=So%20you%20built%20a%20Machine%20Learning%20model?" target="_blank" onclick="trackOutboundLink('http://news.ycombinator.com/submitlink?u=/blog/2017/03/16/so-you-built-a-machine-learning-model/');">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M937 1004l266-499h-112l-157 312q-24 48-44 92l-42-92-155-312h-120l263 493v324h101v-318zm727-588v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/></svg>
+      </a>
+    </li>
+    <li class="twitter">
+      <a href="https://twitter.com/intent/tweet?via=sb2nov&url=http://localhost:4000/blog/2017/03/16/so-you-built-a-machine-learning-model/&text=So%20you%20built%20a%20Machine%20Learning%20model?" target="_blank" onclick="trackOutboundLink('https://twitter.com/intent/tweet?via=sb2nov&url=/blog/2017/03/16/so-you-built-a-machine-learning-model/');">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1408 610q-56 25-121 34 68-40 93-117-65 38-134 51-61-66-153-66-87 0-148.5 61.5t-61.5 148.5q0 29 5 48-129-7-242-65t-192-155q-29 50-29 106 0 114 91 175-47-1-100-26v2q0 75 50 133.5t123 72.5q-29 8-51 8-13 0-39-4 21 63 74.5 104t121.5 42q-116 90-261 90-26 0-50-3 148 94 322 94 112 0 210-35.5t168-95 120.5-137 75-162 24.5-168.5q0-18-1-27 63-45 105-109zm256-194v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/></svg>
+      </a>
+    </li>
+<!--     <li class="facebook">
+      <a href="http://www.facebook.com/sharer.php?u=http://localhost:4000/blog/2017/03/16/so-you-built-a-machine-learning-model/&t=So%20you%20built%20a%20Machine%20Learning%20model?" target="_blank" onclick="trackOutboundLink('http://www.reddit.com/submit?url=/blog/2017/03/16/so-you-built-a-machine-learning-model/');">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1376 128q119 0 203.5 84.5t84.5 203.5v960q0 119-84.5 203.5t-203.5 84.5h-188v-595h199l30-232h-229v-148q0-56 23.5-84t91.5-28l122-1v-207q-63-9-178-9-136 0-217.5 80t-81.5 226v171h-200v232h200v595h-532q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960z"/></svg>
+      </a>
+    </li> -->
+    <li class="linkedin">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/blog/2017/03/16/so-you-built-a-machine-learning-model/&title=So%20you%20built%20a%20Machine%20Learning%20model?" target="_blank" onclick="trackOutboundLink('http://www.linkedin.com/shareArticle?url=sb2nov&url=/blog/2017/03/16/so-you-built-a-machine-learning-model/');">
+        <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M365 1414h231v-694h-231v694zm246-908q-1-52-36-86t-93-34-94.5 34-36.5 86q0 51 35.5 85.5t92.5 34.5h1q59 0 95-34.5t36-85.5zm585 908h231v-398q0-154-73-233t-193-79q-136 0-209 117h2v-101h-231q3 66 0 694h231v-388q0-38 7-56 15-35 45-59.5t74-24.5q116 0 116 157v371zm468-998v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/></svg>
+      </a>
+    </li>
+  </ul>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div><!-- #content -->
+
+      </div><!-- #main -->
+
+      <div class="clear"></div>
+
+      <div id="fotterLinks">
+        <a href="https://www.linkedin.com/in/sunil-raut-3a199858" alt="LinkedIn" target="_blank" onclick="trackOutboundLink('https://www.linkedin.com/in/sunil-raut-3a199858');">LinkedIn</a>
+        |
+        <a href="https://github.com/rautsunil" alt="Github" target="_blank" onclick="trackOutboundLink('http://github.com/?loc=bottom');">Github</a>
+        |
+        <a href="https://twitter.com/RautsunilSunil" alt="Twitter" target="_blank" onclick="trackOutboundLink('http://twitter.com/?loc=bottom');">Twitter</a>
+        |        |
+        <a href="mailto:rautsunil@outlook.com" alt="email" target="_blank" onclick="trackOutboundLink('mailto:rautsuil@outlook.com');">Email</a>
+      </div>
+
+      <div id="copyright">
+        &copy; 2012–2019 <a href="https://sourabhbajaj.com/">Sunil Raut</a>. All rights reserved.
+      </div>
+    </div><!-- .wrap -->
+  </div><!-- #container -->
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="/js/toc/toc.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.toc').toc({
+        title: '',
+        listType: 'ol',
+        minimumHeaders: 2,
+        headers: 'h2, h3, h4, h5, h6',
+        linkHere: true,
+        linkHereTitle: 'Link here',
+        backToTop: true,
+        backToTopId: 'toc',
+        backToTopTitle: 'Back to Table of Contents',
+      });
+      $('.jekyll-toc-header a.jekyll-toc-link-here span.jekyll-toc-icon').addClass('icon icon-link');
+      $('.jekyll-toc-header a.jekyll-toc-back-to-top span.jekyll-toc-icon').addClass('icon icon-chevron-up');
+    });
+  </script>
+</body>
+</html>
+

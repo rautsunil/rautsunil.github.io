@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+<title>Sunil Raut</title>
+<link href="http://sourabhbajaj.com/atom.xml" rel="self"/>
+<link href="http://sourabhbajaj.com"/>
+<updated>2019-04-14T04:04:48+05:30</updated>
+<id>http://sourabhbajaj.com</id>
+
+
+<entry>
+  <title>Social media Share icons for Jekyll</title>
+  <link href="http://sourabhbajaj.com/blog/2017/10/29/adding-social-media-share-icons-to-jekyll/"/>
+  
+  <updated>2017-10-29T00:00:00+05:30</updated>
+  <id>/blog/2017/10/29/adding-social-media-share-icons-to-jekyll</id>
+  <content type="html">&lt;p&gt;I recently added share icons on each blogpost to make it easier for readers to share the posts on social media. I did it with just HTML and CSS. Here is what the final output looked like:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/blog/2017-10/share_demo.png&quot; align=&quot;center&quot; alt=&quot;Innovation&quot; style=&quot;margin:auto; display:block;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is a short guide on how to add this to your own blog.&lt;/p&gt;
+
+&lt;h3 id=&quot;download-images&quot;&gt;Download Images&lt;/h3&gt;
+&lt;p&gt;First we need to download svg images for the social media buttons we’re going to create. You can use &lt;a href=&quot;https://simpleicons.org/&quot;&gt;SimpleIcons&lt;/a&gt;. In this tutorial we’ll use images for Reddit, Hacker News, Twitter and LinkedIn.&lt;/p&gt;
+
+&lt;p&gt;Once you’ve downloaded the images add then to &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/social&lt;/code&gt; directory in your Jekyll project.&lt;/p&gt;
+
+&lt;h3 id=&quot;html-block&quot;&gt;HTML block&lt;/h3&gt;
+&lt;p&gt;Let’s add the HTML code for the social media icons. You can create a &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/share.html&lt;/code&gt; file for this. Don’t forget to change &lt;code class=&quot;highlighter-rouge&quot;&gt;USERNAME&lt;/code&gt; with your account on Twitter.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sharebuttons&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;hr&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sharetitle&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; Share this: &lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;reddit&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.reddit.com/submit?url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | uri_escape}}&amp;amp;title={{ page.title | default:&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;uri_escape&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;}}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        {% include social/share-icon-reddit.svg %}
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hn&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://news.ycombinator.com/submitlink?u={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | uri_escape}}&amp;amp;t={{ page.title | default:&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;uri_escape&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        {% include social/share-icon-hn.svg %}
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;twitter&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://twitter.com/intent/tweet?via=USERNAME&amp;amp;url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | uri_escape}}&amp;amp;text={{ page.title | default:&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;uri_escape&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        {% include social/share-icon-twitter.svg %}
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;linkedin&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://www.linkedin.com/shareArticle?mini=true&amp;amp;url={{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | uri_escape}}&amp;amp;title={{ page.title | default:&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;uri_escape&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        {% include social/share-icon-linkedin.svg %}
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;add-layout-to-the-post-template&quot;&gt;Add layout to the post template&lt;/h3&gt;
+&lt;p&gt;We need to include this block in the layout file which might be &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts/post.html&lt;/code&gt;. Add the one line to that file.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{% include share.html %}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;style-the-buttons&quot;&gt;Style the buttons&lt;/h3&gt;
+&lt;p&gt;In the CSS file for the site, add the following snippet. We got the colors for the icons from &lt;a href=&quot;https://simpleicons.org/&quot;&gt;SimpleIcons&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* Share buttons */&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.sharebuttons&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.sharebuttons&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;text-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.sharebuttons&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;inline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.sharebuttons&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;text-decoration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.sharebuttons&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;svg&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;40px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;40px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.sharebuttons&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.reddit&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;svg&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#FF4500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.sharebuttons&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.hn&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;svg&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#F0652F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.sharebuttons&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.twitter&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;svg&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#1DA1F2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.sharebuttons&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.linkedin&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;svg&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#0077B5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;share-this-post&quot;&gt;Share this post&lt;/h3&gt;
+&lt;p&gt;Now you can build your site to check the output. Don’t forget to share this post :)&lt;/p&gt;
+</content>
+</entry>
+
+<entry>
+  <title>How to Innovate on Purpose?</title>
+  <link href="http://sourabhbajaj.com/blog/2017/10/28/how-to-innovate-on-purpose/"/>
+  
+  <updated>2017-10-28T00:00:00+05:30</updated>
+  <id>/blog/2017/10/28/how-to-innovate-on-purpose</id>
+  <content type="html">&lt;p&gt;&lt;img src=&quot;/images/blog/2017-10/innovation.png&quot; align=&quot;center&quot; alt=&quot;Innovation&quot; style=&quot;margin:auto; display:block;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I was recently watching &lt;a href=&quot;http://www.spencergreenberg.com/&quot;&gt;Spencer Greenberg’s&lt;/a&gt; talk from &lt;a href=&quot;https://www.youtube.com/watch?v=LiVyRtS_d9o&quot;&gt;EA Global 2015&lt;/a&gt; talking about deliberate innovation.&lt;/p&gt;
+
+&lt;p&gt;We often think of innovation in two broad themes: Genius and Luck. Genius are people like Einstein who are a cut above the rest and made scientific breakthroughs. Luck is when eureka moments led to discoveries and inventions. The problem with these is that they don’t help us be innovative as neither is actionable.&lt;/p&gt;
+
+&lt;p&gt;When looking for innvotive ideas, we start looking for solutions that are possible, discoverable, smart and big. The issue here is that more often than not someone is already working on these.&lt;/p&gt;
+
+&lt;p&gt;Can we reverse the situation and look for ideas that are impossible, undiscoverable, stupid and tiny. This doesn’t seem too feasible so let’s tweak them just a bit to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Impossible until now&lt;/strong&gt;: Technology has a lag between it being possible and when it is applied for the masses. One can exploit this gap to create solutions using this new technology and make it more accessible. E.g. applying machine learning to different segments.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Undiscoverable to others&lt;/strong&gt;: Intersection of two complete different ideas that one is rarely familiar with can lead to interesting applications and ideas. E.g. StitchFix is an intersection of data science and fashion.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Stupid sounding&lt;/strong&gt;: There are some ideas that sound stupid unless you know some secret about the world that might make it a good idea. E.g. early days of blockchain and cryptocurrencies.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Tiny at first&lt;/strong&gt;: Try to solve problems for a small group which you are intimately familiar with; this may lead to a path where you can solve problems for a larger group. E.g. Segment.io was started as an internal tool.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;At the end, it is important to remember that innovation is dependent on a lot of other factors such as hard work, luck, quality etc.&lt;/p&gt;
+</content>
+</entry>
+
+<entry>
+  <title>What's your ML test score?</title>
+  <link href="http://sourabhbajaj.com/blog/2017/09/07/what-s-your-ml-test-score/"/>
+  
+  <updated>2017-09-07T00:00:00+05:30</updated>
+  <id>/blog/2017/09/07/what-s-your-ml-test-score</id>
+  <content type="html">&lt;p&gt;Using machine-learning systems in production is very different from running offline experiments as you run into problems such as train/test skew, latency and resource requirements. The paper &lt;a href=&quot;https://research.google.com/pubs/pub45742.html&quot;&gt;What’s your ML Test Score?&lt;/a&gt; by Eric Breck etc. provides a rubric for measuring the quality of ML system design.&lt;/p&gt;
+
+&lt;p&gt;The rubric has four sections so we’ll go over each of them.&lt;/p&gt;
+
+&lt;h3 id=&quot;tests-for-features-and-data&quot;&gt;Tests for Features and Data&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Distributions of each feature&lt;/li&gt;
+  &lt;li&gt;Features are same in both the training and serving stack&lt;/li&gt;
+  &lt;li&gt;Relationship between different features and targets&lt;/li&gt;
+  &lt;li&gt;Privacy control in model training&lt;/li&gt;
+  &lt;li&gt;Cost of computing each feature&lt;/li&gt;
+  &lt;li&gt;Does not contain features determined unsuitable for use&lt;/li&gt;
+  &lt;li&gt;Time to add new features to production&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Points around expensive and redundant features are important as they can affect the ability of the system to meet the desired latency and throughput requirements. One options to solve such issues is to pre-cache expensive features and use them at prediction time but this can yield to a lot of redundant compute.&lt;/p&gt;
+
+&lt;p&gt;I liked the point around making sure we’re not using features determined un-suitable in the context of ML Fairness as we could potentially ban features such as gender etc.&lt;/p&gt;
+
+&lt;h3 id=&quot;tests-for-model-development&quot;&gt;Tests for Model Development&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Model code goes through code review&lt;/li&gt;
+  &lt;li&gt;Offline proxy metrics are measuring what will be A/B tested&lt;/li&gt;
+  &lt;li&gt;Hyperparameter tuning&lt;/li&gt;
+  &lt;li&gt;Effect of model staleness&lt;/li&gt;
+  &lt;li&gt;Simple models as a baseline&lt;/li&gt;
+  &lt;li&gt;Model performs well across different data slices&lt;/li&gt;
+  &lt;li&gt;Test for implicit bias in the model or data&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Touches on aspects of good design principles such as optimizing for the right metrics, measuring staleness and updating the model on time. The point around good performance on different data slices is specially valid when majority data to the website might come from English speaking or developed countries etc.&lt;/p&gt;
+
+&lt;h3 id=&quot;tests-for-ml-infrastructure&quot;&gt;Tests for ML Infrastructure&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Reproducibility of model training&lt;/li&gt;
+  &lt;li&gt;Integrations tests for the ML systems&lt;/li&gt;
+  &lt;li&gt;Quality tests before deployment of the model&lt;/li&gt;
+  &lt;li&gt;Ability to rollback deployed models&lt;/li&gt;
+  &lt;li&gt;Testing via a canary process&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here most points are easy to follow in this list but something that I have found hard in experience is the quality tests. One example being recommendation systems, since the output of the system may change from time to time. It is hard to write automated tests that measure quality; interested in learning how others solve this problem.&lt;/p&gt;
+
+&lt;h3 id=&quot;monitoring-tests-for-ml-systems&quot;&gt;Monitoring Tests for ML Systems&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Upstream instability in features, both in training and serving&lt;/li&gt;
+  &lt;li&gt;Data invariants hold in training and serving inputs&lt;/li&gt;
+  &lt;li&gt;Model staleness&lt;/li&gt;
+  &lt;li&gt;Train/Test skew in features and inputs&lt;/li&gt;
+  &lt;li&gt;Slow leak regression in latency, throughput etc.&lt;/li&gt;
+  &lt;li&gt;Regression in prediction quality&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This was a fantastic list as it covers a lot of hidden problems in model serving. As models get larger it can get expensive to serve them or features get more expensive to compute. Useful tools could be monitoring success metrics as a time-series and seeing if we hit consistent performance. Another could be to always have a small A/B test running against the old / baseline model.&lt;/p&gt;
+
+&lt;p&gt;The paper touches on basic problems that you run into quite often but are not talked about much in the ML community. Curious to know, how the problems around feature engineering and model complexity evolve with advent of Deep Learning models.&lt;/p&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;[1] Breck, E., Cai, S., Nielsen, E., Salib, M., &amp;amp; Sculley, D. (2016). What’s your ML Test Score? A rubric for ML production systems. Reliable Machine Learning in the Wild - NIPS 2016 Workshop, (NIPS).&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+</entry>
+
+<entry>
+  <title>The Start-up of You</title>
+  <link href="http://sourabhbajaj.com/blog/2017/03/26/the-startup-of-you/"/>
+  
+  <updated>2017-03-26T00:00:00+05:30</updated>
+  <id>/blog/2017/03/26/the-startup-of-you</id>
+  <content type="html">&lt;p&gt;I recently finished reading &lt;a href=&quot;https://www.amazon.com/Start-up-You-Future-Yourself-Transform-ebook/dp/B0050DIWHU&quot;&gt;The Start-up of You&lt;/a&gt; by Reid Hoffman. The book provides an interesting framework to think about your career. Here are some nuggets from the book.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;When you start a company, you make decisions in an information-poor, time-compressed resource-constrained environment. There are no guarantees or safety nets, so you take on a certain amount of risk.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You’re selling your brainpower, your skills, and your energy, and you face massive competition as well. Possible employers, partners, investors all choose between you and someone who looks like you. So one should be able to answer A company hires me over others because … This doesn’t mean you need to be cheaper or faster than everyone as in life there are multiple gold medals. You can’t be best at everything so determine your local niche in which you can develop a competitive advantage.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;Though we are optimistic, we must remain vigilant and maintain a sense of urgency - Jeff Bezos&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Your competitive advantage is formed by three different forces: your assets, your aspirations and the market realities. The best direction has you pursuing worthy aspirations, using your assets while navigating the market realities.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The environment will change, you’ll change, your allies and competitors will change. So it is unwise at any point in your life to pinpoint a single dream around which your existence revolves.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Prioritize offers that provide you the most learning potential. Practical knowledge is best developed by doing, launching and learning from the users. Make small bets and think two steps ahead about where will this current action take you.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;The fastest way to change yourself is to hang out with people who are already the way you want to be.&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Making a decision may reduce opportunities in the short run, but increases opportunities in the long run.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The long-term answer to risk is to build resilience: if you don’t find risk; risk will find you.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You achieve big success when you’re both contrarian and right.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;How you gather, manage and use information will determine whether you win or lose.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;It is people who help you understand your assets, aspirations, and the market realities; it’s people who help you vet and get introduced to possible allies and trust connections; it’s people who help you track the risk attached to a given opportunity.&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;When asking for career advice go in the following order: domain experts, people who know you well and then just really smart people.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;When making a decision ask wide questions to figure out the criteria you should be using; ask narrow questions to figure out which weight you should give to each.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+</entry>
+
+<entry>
+  <title>So you built a Machine Learning model?</title>
+  <link href="http://sourabhbajaj.com/blog/2017/03/16/so-you-built-a-machine-learning-model/"/>
+  
+  <updated>2017-03-16T00:00:00+05:30</updated>
+  <id>/blog/2017/03/16/so-you-built-a-machine-learning-model</id>
+  <content type="html">&lt;p&gt;You have been working on a Machine Learning project. You collected data from various sources, built your model and got some preliminary results. You notice you are getting about 80% accuracy on your test set which is less than what you desire. Now what? How do you improve the model?&lt;/p&gt;
+
+&lt;p&gt;Should you get more data? Build a more complex model? Increase or decrease regularization? Add or remove features? Run more iterations of gradient descent? Maybe try all of them?&lt;/p&gt;
+
+&lt;p&gt;Recently I got this question from a friend, who said it seemed that improving models is just hit and trial. This prompted me to write this post on how to make an informed decision about what should you work on first.&lt;/p&gt;
+
+&lt;h2 id=&quot;bias-and-variance&quot;&gt;Bias and Variance&lt;/h2&gt;
+&lt;p&gt;To build a more accurate model, we first need to learn what are the different sources of error in our model.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bias&lt;/strong&gt;: The error due to bias is taken as the difference between the expected (or average) prediction of our model and the correct value which we are trying to predict.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Variance&lt;/strong&gt;: The error due to variance is taken as the variability of a model prediction for a given data point.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/blog/2017-03/bias-variance.png&quot; alt=&quot;Bias Variance&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;mathematical-definition&quot;&gt;Mathematical definition&lt;/h3&gt;
+&lt;p&gt;We are trying to predict &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt; and our input is &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt;. Let’s assume there is a relationship relating one to the other such as &lt;script type=&quot;math/tex&quot;&gt;Y = f(X) + \epsilon&lt;/script&gt; where the error term &lt;script type=&quot;math/tex&quot;&gt;\epsilon&lt;/script&gt; is normally distributed with a mean of zero like so &lt;script type=&quot;math/tex&quot;&gt;\epsilon \sim \mathcal{N}(0,\sigma_\epsilon)&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;We may estimate a model &lt;script type=&quot;math/tex&quot;&gt;\hat{f}(X)&lt;/script&gt; of &lt;script type=&quot;math/tex&quot;&gt;f(X)&lt;/script&gt; using linear regressions or another modeling technique. Then, the expected squared prediction error at a point &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; is:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Err(x) = E\left[(Y-\hat{f}(x))^2\right]&lt;/script&gt;
+
+&lt;p&gt;The error can be split into bias and variance components:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Err(x) = \left(E[\hat{f}(x)]-f(x)\right)^2 + E\left[\left(\hat{f}(x)-E[\hat{f}(x)]\right)^2\right] +\sigma_e^2&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Err(x) = \mathrm{Bias}^2 + \mathrm{Variance} + \mathrm{Irreducible\ Error}&lt;/script&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/blog/2017-03/error.png&quot; align=&quot;left&quot; alt=&quot;Irreducible error&quot; style=&quot;width: 40%; margin-left:5%; margin-right:5%; margin-top:20px; margin-bottom:20px;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The irreducible error is the noise term in the true relationship that cannot be fundamentally reduced by any model. Given the true model and infinite data to calibrate it, we should be able to reduce both the bias and variance terms to 0. However, in a world with imperfect models and finite data, there is a tradeoff between minimizing the bias and minimizing the variance.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-are-learning-curves&quot;&gt;What are Learning Curves?&lt;/h2&gt;
+&lt;p&gt;Now we know about Bias and Variance and the tradeoff between the two, but the problem of how to improve our model still remains. What is our model suffering from - high bias or high variance? To answer this we need to plot Learning curves for the model.&lt;/p&gt;
+
+&lt;h3 id=&quot;high-bias&quot;&gt;High Bias&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Low training set size: &lt;script type=&quot;math/tex&quot;&gt;J_{train}(\Theta)&lt;/script&gt; will be low and &lt;script type=&quot;math/tex&quot;&gt;J_{CV}(\Theta)&lt;/script&gt; will be high&lt;/li&gt;
+  &lt;li&gt;Large training set size: &lt;script type=&quot;math/tex&quot;&gt;J_{train}(\Theta)&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;J_{CV}(\Theta)&lt;/script&gt; will be high with &lt;script type=&quot;math/tex&quot;&gt;J_{train}(\Theta) \approx J_{CV}(\Theta)&lt;/script&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;high-variance&quot;&gt;High Variance&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Low training set size: causes &lt;script type=&quot;math/tex&quot;&gt;J_{train}(\Theta)&lt;/script&gt; will be low and &lt;script type=&quot;math/tex&quot;&gt;J_{CV}(\Theta)&lt;/script&gt; will be high&lt;/li&gt;
+  &lt;li&gt;Large training set size: &lt;script type=&quot;math/tex&quot;&gt;J_{train}(\Theta)&lt;/script&gt; increases with training set size and &lt;script type=&quot;math/tex&quot;&gt;J_{CV}(\Theta)&lt;/script&gt; continues to decrease without leveling off. &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+J_{train}(\Theta) &lt; J_{CV}(\Theta) %]]&gt;&lt;/script&gt; but the difference between them remains significant&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/blog/2017-03/high_bias.png&quot; align=&quot;left&quot; alt=&quot;High bias learning curve&quot; style=&quot;width: 48%; margin-top:20px; margin-bottom:50px;&quot; /&gt;
+&lt;img src=&quot;/images/blog/2017-03/high_variance.png&quot; align=&quot;right&quot; alt=&quot;High variance learning curve&quot; style=&quot;width: 48%; margin-top:20px; margin-bottom:50px;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;what-to-do-next&quot;&gt;What to do next?&lt;/h2&gt;
+&lt;p&gt;We have figured out if we have a bias problem or a variance one. We can make an informed choice about what to work on next.&lt;/p&gt;
+
+&lt;h3 id=&quot;high-bias-1&quot;&gt;High Bias&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Try more complex features, polynomial terms or adding more nodes&lt;/li&gt;
+  &lt;li&gt;Decreasing the regularization parameter &lt;script type=&quot;math/tex&quot;&gt;\lambda&lt;/script&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;high-variance-1&quot;&gt;High Variance&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Collecting more training data as that will help the model generalize better&lt;/li&gt;
+  &lt;li&gt;Reducing the feature set size&lt;/li&gt;
+  &lt;li&gt;Increasing the regularization parameter &lt;script type=&quot;math/tex&quot;&gt;\lambda&lt;/script&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/blog/2017-03/flowchart.png&quot; alt=&quot;Next steps flow chart&quot; style=&quot;width: 70%; margin-left:10%; margin-right:10%; margin-top:20px; margin-bottom:10px;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;what-if-i-have-an-ml-pipeline&quot;&gt;What if I have an ML pipeline?&lt;/h2&gt;
+&lt;p&gt;As most machine learning systems are built using a chain of models. It is fairly common to have a scenario where you have an ML pipeline and want to figure out which part to work on next? Ceiling Analysis can be useful here.&lt;/p&gt;
+
+&lt;p&gt;For Ceiling Analysis plug in a perfect version for each component of the pipeline one at a time and then measure how much improvement do we see in the complete pipeline. This can give us a sense of working on which component gives us the highest bang for the buck.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/blog/2017-03/pipeline.png&quot; alt=&quot;Pipeline&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s say in the above character detection pipeline you observe that a perfect character segmentation system gives a 1% boost to the overall system while a perfect character recognition system will provide a 7% boost. So we should focus on improving the recognition system much more so than the segmentation model.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.coursera.org/learn/machine-learning&quot;&gt;Machine Learning&lt;/a&gt; class on Coursera&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www-stat.stanford.edu/~tibs/ElemStatLearn/&quot;&gt;The Elements of Statistical Learning&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Pattern-Recognition-Learning-Information-Statistics/dp/0387310738&quot;&gt;Pattern Recognition and Machine Learning &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://scott.fortmann-roe.com/docs/BiasVariance.html&quot;&gt;Understanding the Bias-Variance Tradeoff&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+</entry>
+
+<entry>
+  <title>Running GUI applications using Docker for Mac</title>
+  <link href="http://sourabhbajaj.com/blog/2017/02/07/gui-applications-docker-mac/"/>
+  
+  <updated>2017-02-07T00:00:00+05:30</updated>
+  <id>/blog/2017/02/07/gui-applications-docker-mac</id>
+  <content type="html">&lt;p&gt;This is a short guide explaining how to run GUI applications from within Docker on Mac. This uses XQuartz to enable to set the &lt;code class=&quot;highlighter-rouge&quot;&gt;DISPLAY&lt;/code&gt; variable within the container.&lt;/p&gt;
+
+&lt;h3 id=&quot;install-xquartz&quot;&gt;Install XQuartz&lt;/h3&gt;
+
+&lt;p&gt;You can install XQuartz using homebrew with &lt;code class=&quot;highlighter-rouge&quot;&gt;brew cask install xquartz&lt;/code&gt; or directly from the website &lt;a href=&quot;https://www.xquartz.org/&quot;&gt;here&lt;/a&gt;. At the time of writing, I had &lt;code class=&quot;highlighter-rouge&quot;&gt;2.7.11&lt;/code&gt; installed on my machine with OSX El Capitan. After installing XQuartz restart your machine.&lt;/p&gt;
+
+&lt;h3 id=&quot;install-docker-for-mac&quot;&gt;Install Docker for Mac&lt;/h3&gt;
+
+&lt;p&gt;Install docker using &lt;code class=&quot;highlighter-rouge&quot;&gt;brew cask install docker&lt;/code&gt; or directly from the website &lt;a href=&quot;https://docs.docker.com/docker-for-mac/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;run-xquartz&quot;&gt;Run XQuartz&lt;/h3&gt;
+&lt;p&gt;Start XQuartz from command line using &lt;code class=&quot;highlighter-rouge&quot;&gt;open -a XQuartz&lt;/code&gt;. In the XQuartz preferences, go to the “Security” tab and make sure you’ve got “Allow connections from network clients” ticked:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/blog/2017-02/xquartz_preferences.png&quot; alt=&quot;XQuartz Preferences&quot; style=&quot;width: 50%; margin-left:10%; margin-right:10%; margin-top:10px; margin-bottom:10px;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;host-machine-ip&quot;&gt;Host Machine IP&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IP=$(ifconfig en0 | grep inet | awk '$1==&quot;inet&quot; {print $2}')&lt;/code&gt; should set the &lt;code class=&quot;highlighter-rouge&quot;&gt;IP&lt;/code&gt; variable as the ip of your local machine. If you’re on wifi you may want to use &lt;code class=&quot;highlighter-rouge&quot;&gt;en1&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;en0&lt;/code&gt;, check the value of the variable using &lt;code class=&quot;highlighter-rouge&quot;&gt;echo $IP&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now add the IP using Xhost with &lt;code class=&quot;highlighter-rouge&quot;&gt;xhost + $IP&lt;/code&gt;. If the xhost command is not found check &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/X11/bin/xhost&lt;/code&gt; as that might not be in your path.&lt;/p&gt;
+
+&lt;h3 id=&quot;running-a-container&quot;&gt;Running a container&lt;/h3&gt;
+
+&lt;p&gt;You can now try running firefox in your container with:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run -d --name firefox -e DISPLAY=$IP:0 -v /tmp/.X11-unix:/tmp/.X11-unix jess/firefox
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;or run octave using:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run -d --name octave -e DISPLAY=$IP:0 -v /tmp/.X11-unix:/tmp/.X11-unix openmicroscopy/octave
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</content>
+</entry>
+
+<entry>
+  <title>Upsert Backups with rsync</title>
+  <link href="http://sourabhbajaj.com/blog/2016/05/22/upsert-backups-rsync/"/>
+  
+  <updated>2016-05-22T00:00:00+05:30</updated>
+  <id>/blog/2016/05/22/upsert-backups-rsync</id>
+  <content type="html">&lt;p&gt;We all know the importance of taking backups. I have run into a few machine failures in the past and they always seem to occur when you least expect them. Currently, Mac comes with a backup program called Time Machine which automatically takes backup of your disk to an external drive. But some of its features have issues that I would like to highlight:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You need to get a separate external hard drive that can only be used for Time Machine. Although you can get around this by &lt;a href=&quot;http://osxdaily.com/2013/05/01/use-single-hard-drive-time-machine-and-file-storage/&quot;&gt;partitioning&lt;/a&gt; the external drive into multiple partitions.&lt;/li&gt;
+  &lt;li&gt;This external drive needs to be formatted in MacOS Journaled file format, which makes it harder to be used on Windows/Linux.&lt;/li&gt;
+  &lt;li&gt;You cannot make a list of things you want to have backed up, you can only exclude folders from your complete hard disk&lt;/li&gt;
+  &lt;li&gt;Time Machine makes an exact copy of your hard drive.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The points listed above are not huge blockers by any means and are perfectly fine choices on Time Machine’s part. Still, the last one had been a growing pain for me as SSDs are much smaller in size compared to HDDs unless you have a lot of $$ to shell out.&lt;/p&gt;
+
+&lt;p&gt;Let’s say you have a 1 TB external drive and your Mac has 128GB of disk space. You transfer 50 GB of music/videos/data to your external drive and delete it from your local disk to create space. The problem with this approach is that the next time you run a backup,  those files would be deleted from the external disk also, as they are no longer present on your local disk. This can be really frustrating if you want the new data to be merged into your old copy on the backup drive instead of wiping out the old data.&lt;/p&gt;
+
+&lt;p&gt;The solution I ended up settling on was to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;rsync&lt;/code&gt; &lt;a href=&quot;http://linux.die.net/man/1/rsync&quot;&gt;command line utility&lt;/a&gt; on Unix to backup. The basic syntax for using rsync is very simple: &lt;code class=&quot;highlighter-rouge&quot;&gt;rsync OPTIONS SOURCE DESTINATION&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;So if you want to backup your Documents directory onto the external drive.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rsync -a --progress --exclude '*.DS_Store' ~/Documents /Volumes/Seagate/&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Here the first flag &lt;code class=&quot;highlighter-rouge&quot;&gt;-a&lt;/code&gt; means Archive which does exactly what we want, the second &lt;code class=&quot;highlighter-rouge&quot;&gt;--progress&lt;/code&gt; is used to provide additional feedback to us when the job is running. The exclude statements just filter files that we don’t want being transferred to our backup drive such as the &lt;code class=&quot;highlighter-rouge&quot;&gt;.DS_Store&lt;/code&gt; files that mac creates in directories. Finally, we have the source and destination paths.&lt;/p&gt;
+
+&lt;p&gt;I ended up creating a new function in my &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.zshrc&lt;/code&gt; (&lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt; if you use bash) to help with backing up the different directories I wanted. This can directly be invoked up typing backupDisk in the terminal.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;backupDisk&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    rsync &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--progress&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--exclude&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'*.DS_Store'&lt;/span&gt; ~/Acads /Volumes/Seagate/
+    rsync &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--progress&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--exclude&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'*.DS_Store'&lt;/span&gt; ~/Music /Volumes/Seagate/
+    rsync &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--progress&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--exclude&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'*.DS_Store'&lt;/span&gt; ~/Photos /Volumes/Seagate/
+    rsync &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--progress&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--exclude&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'*.DS_Store'&lt;/span&gt; ~/Videos /Volumes/Seagate/
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;PS: I started using this trick in school when online storage was way more expensive compared to external drives. You can also use one of the cloud storage providers as an alternative. I use Google Drive for most of my documents.&lt;/p&gt;
+</content>
+</entry>
+
+<entry>
+  <title>Redshift SSD Benchmarks</title>
+  <link href="http://sourabhbajaj.com/blog/2014/12/20/redshift-ssd-benchmarks/"/>
+  
+  <updated>2014-12-20T00:00:00+05:30</updated>
+  <id>/blog/2014/12/20/redshift-ssd-benchmarks</id>
+  <content type="html">&lt;p&gt;Our warehouse runs completely on Redshift, and query performance is extremely important to us. Earlier this year, the AWS team announced the release of SSD instances for Amazon Redshift. Is the extra CPU truly worth it? We do a lot of processing with Redshift, so this question is big for us. To answer this, we decided to benchmark SSD performance and compare it to our original HDD performance.&lt;/p&gt;
+
+&lt;p&gt;Redshift is easy to use because its PostgreSQL JDBC drivers allow us to use a range of familiar SQL clients. Its speedy performance is achieved through columnar storage and data compression.&lt;/p&gt;
+
+&lt;h2 id=&quot;experiment-setup&quot;&gt;Experiment Setup&lt;/h2&gt;
+&lt;p&gt;The Redshift instance specs are based off on-demand pricing, but the reserved instances can be 75% more affordable. The results from the benchmark are the mean run times after running each query 3 times.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;HDD Setup 1&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;HDD Setup 2&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;HDD Setup 3&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;HDD Setup 4&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Nodes&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;4 dw1.xlarge&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;8 dw1.xlarge&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;32 dw2.large&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;4 dw2.8xlarge&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Storage&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;8 TB&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;16 TB&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;5.12 TB&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;10.24 TB&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Memory&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;60 GB&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;120 GB&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;480 GB&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;976 GB&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;vCPU&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;8&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;16&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;64&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;128&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Price ($/hr)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;3.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;6.8&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;8.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;19.2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;query-1&quot;&gt;Query 1.&lt;/h3&gt;
+&lt;p&gt;First, we ran a simple join query between a table with 1 billion rows and a table with 50 million rows. The total amount of data processed was around 46GB. The results fell in favour of SSD’s.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://dnsta5v53r71w.cloudfront.net/images/redshift-ssd-benchmark/1a.png&quot; alt=&quot;Screenshot&quot; style=&quot;width: 80%; margin-left:10%; margin-right:10%; margin-top:20px; margin-bottom:20px;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;query-2&quot;&gt;Query 2.&lt;/h3&gt;
+&lt;p&gt;This complex query features REGEX matching and aggregate functions across 1 million rows from 4 joins. The total amount of data processed was around 100GB. The results fell even more in favour of SSD’s from 5x - 15x the performance improvement.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://dnsta5v53r71w.cloudfront.net/images/redshift-ssd-benchmark/2.png&quot; alt=&quot;Screenshot&quot; style=&quot;width: 80%; margin-left:10%; margin-right:10%; margin-top:20px; margin-bottom:20px;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;query-3&quot;&gt;Query 3.&lt;/h3&gt;
+&lt;p&gt;A query that runs window functions on a table of 1 billion rows showed surprising results. The total amount of data in this table is about 400GB. Although the SSD’s performed better, the smaller SSD’s out-performed the bigger SSD’s despite having double the memory and CPU power.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://dnsta5v53r71w.cloudfront.net/images/redshift-ssd-benchmark/3.png&quot; alt=&quot;Screenshot&quot; style=&quot;width: 80%; margin-left:10%; margin-right:10%; margin-top:20px; margin-bottom:20px;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;query-4&quot;&gt;Query 4.&lt;/h3&gt;
+&lt;p&gt;This last query has 4 join statements with a subquery that also includes 2 joins. The amount of data processed is around 107GB. Since this query is very compute-heavy, it is not surprising that SSD’s perform 10x better. What is shocking is that the smaller SSD’s are once again more performant than the bigger SSD’s.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://dnsta5v53r71w.cloudfront.net/images/redshift-ssd-benchmark/4a.png&quot; alt=&quot;Screenshot&quot; style=&quot;width: 80%; margin-left:10%; margin-right:10%; margin-top:20px; margin-bottom:20px;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;We also ran some other queries and the performance improvement from HDD to SSD was consistent at about 5 - 10 times. From these experiments, the DW2 machines are clearly promising in terms of computation time. For the same price, SSD’s provide 3.4 times more CPU power and memory. However, the disk storage is about 25% of that of the HDD’s.&lt;/p&gt;
+
+&lt;p&gt;A limitation to the dw2.large SSD instances is that a Redshift cluster can support at most 32 of them. That means dw2.large’s can provide at most 5.12 TB of disk storage. The only other option is to upgrade to dw2.8xlarge’s but this experiment shows little performance benefits from dw2.large’s to dw2.8xlarge’s despite doubling the memory and CPU.&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;&lt;small&gt;PS: This was originally written by Jason Shao on the &lt;a href=&quot;https://tech.coursera.org/blog/2014/12/19/redshift-benchmark/&quot;&gt;Coursera blog&lt;/a&gt;.&lt;/small&gt;&lt;/i&gt;&lt;/p&gt;
+</content>
+</entry>
+
+<entry>
+  <title>Pycon 2014 - Montreal</title>
+  <link href="http://sourabhbajaj.com/blog/2014/04/20/pycon-2014-montreal/"/>
+  
+  <updated>2014-04-20T00:00:00+05:30</updated>
+  <id>/blog/2014/04/20/pycon-2014---montreal</id>
+  <content type="html">&lt;p&gt;I’ve always loved developing in Python, specially after working on QSTK and at Lucena and Coursera. This year I was finally able to make it to PyCon in Montreal, Canada with the help of Python Software Foundation and Coursera.&lt;/p&gt;
+
+&lt;p&gt;It was great talking to some many other people who share the same love for the language that I do. It was a great learning experience and a gentle reminder that I still have a long way to go. Talking to Guido was the highlight of the conference for me.&lt;/p&gt;
+
+&lt;p&gt;I was with a few co-workers from Coursera as company sponsors. We use a fair amount of python (Django, Fabric, IPython, and the scientific python stack) at work. We were excited to show off our Python courses and let others know about the challenging engineering work we get to do out here in Mountain View, California.&lt;/p&gt;
+
+&lt;p&gt;As an engineer working here in the Bay Area I don’t often get to see the true global impact of my work, so hearing stories from students from all different backgrounds was rewarding. We were extremely humbled by how many people were seeking out education on the Coursera platform and pushing themselves to succeed.&lt;/p&gt;
+
+&lt;p&gt;In between my time at the Coursera booth, I would try and attend as many of the great talks at the conference. A few of the talks that I was able to attend were Graham Dumpleton’s talk on &lt;a href=&quot;http://pyvideo.org/video/2617/advanced-methods-for-creat&quot;&gt;Advanced methods of creating decorators&lt;/a&gt;, Tres Seaver’s talk - &lt;a href=&quot;http://pyvideo.org/video/2626/by-your-bootstraps-porting-your-application-to-p&quot;&gt;By Your Bootstraps: Porting Your Application to Python3&lt;/a&gt;, and &lt;a href=&quot;http://pyvideo.org/video/2659/its-dangerous-to-go-alone-battling-the-invisibl&quot;&gt;It’s Dangerous to Go Alone: Battling the Invisible Monsters of Tech&lt;/a&gt; by Julie Pagano.&lt;/p&gt;
+
+&lt;p&gt;The shoutout from Jessica McKellar during the &lt;a href=&quot;http://pyvideo.org/video/2684/keynote-jessica-mckellar&quot;&gt;keynote&lt;/a&gt; was really the cherry-on-top, solidifying the work that I do here at Coursera and the things we can give back as a company to the Python community at large.&lt;/p&gt;
+
+&lt;p&gt;See you all at PyCon 2015!&lt;/p&gt;
+</content>
+</entry>
+
+<entry>
+  <title>Mac OSX Setup Guide</title>
+  <link href="http://sourabhbajaj.com/blog/2014/04/20/mac-os-x-setup-guide/"/>
+  
+  <updated>2014-04-20T00:00:00+05:30</updated>
+  <id>/blog/2014/04/20/mac-os-x-setup-guide</id>
+  <content type="html">&lt;p&gt;I recently updated the Mac OS X setup guide I maintain to an interactive &lt;a href=&quot;https://www.gitbook.com/&quot;&gt;Gitbook&lt;/a&gt;. You can reference it &lt;a href=&quot;/mac-setup&quot;&gt;here (Mac OS X Setup Guide)&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/blog/2014-04/mac-gitbook.png&quot; alt=&quot;Screenshot&quot; style=&quot;width: 80%; margin-left:10%; margin-right:10%; margin-top:20px; margin-bottom:20px;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This book covers the basics of setting up development environment on a new MacBook for most major languages. All instructions covered have been tried on Mountain Lion and Mavericks but they might be more inclined towards Mavericks. Whether you are an experienced programmer or not, this book is intended for everyone to use as a reference when installing some language/library.&lt;/p&gt;
+
+&lt;p&gt;We will set up Node (JavaScript), Python, CPlusPlus, and Ruby environments. Even if you don’t program in all three, it is good to have them as many command-line tools use one of them. We also install a few daily use application and Latex. As you read and follow these steps, feel free to send me any feedback or comments you may have.&lt;/p&gt;
+
+&lt;p&gt;All contributions to the book are welcome. Please help add support for other libraries and languages.&lt;/p&gt;
+</content>
+</entry>
+
+<entry>
+  <title>Fix Value Error: unknown locale: UTF 8</title>
+  <link href="http://sourabhbajaj.com/blog/2014/03/31/fix-valueerror-unknown-locale-utf-8/"/>
+  
+  <updated>2014-03-31T00:00:00+05:30</updated>
+  <id>/blog/2014/03/31/fix-valueerror-unknown-locale-utf-8</id>
+  <content type="html">&lt;p&gt;Today I was trying to install AWS CLI and got this error when running the help command.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;raise ValueError, &lt;span class=&quot;s1&quot;&gt;'unknown locale: %s'&lt;/span&gt; % localename
+ValueError: unknown locale: UTF-8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The solution was to add some environment variables to my zsh environment. So I added this to my &lt;code class=&quot;highlighter-rouge&quot;&gt;env-config&lt;/code&gt; files.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LANG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;en_US.UTF-8&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LC_COLLATE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;en_US.UTF-8&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LC_CTYPE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;en_US.UTF-8&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LC_MESSAGES&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;en_US.UTF-8&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LC_MONETARY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;en_US.UTF-8&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LC_NUMERIC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;en_US.UTF-8&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LC_TIME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;en_US.UTF-8&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LC_ALL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To test the code run:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'import locale; print(locale.getdefaultlocale());'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And you should see &lt;code class=&quot;highlighter-rouge&quot;&gt;('en_US', 'UTF-8')&lt;/code&gt; as the output.&lt;/p&gt;
+
+&lt;p&gt;References for the post:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://patrick.arminio.info/blog/2012/02/fix-valueerror-unknown-locale-utf8/&quot;&gt;Patrick Armino’s Blogpost&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/19961239/pelican-3-3-pelican-quickstart-error-valueerror-unknown-locale-utf-8&quot;&gt;Stackoverflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+</entry>
+
+<entry>
+  <title>Guide to make a website like this</title>
+  <link href="http://sourabhbajaj.com/blog/2014/02/09/Guide-to-make-a-website-like-this/"/>
+  
+  <updated>2014-02-09T00:00:00+05:30</updated>
+  <id>/blog/2014/02/09/Guide-to-make-a-website-like-this</id>
+  <content type="html">&lt;p&gt;This is my first blog post since I redesigned my website to be hosted using &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;. I have been using &lt;a href=&quot;http://pages.github.com/&quot;&gt;Github pages&lt;/a&gt; for quite sometime now to host my portfolio but today I decide to revamp the whole thing and create a blog as well.&lt;/p&gt;
+
+&lt;p&gt;So now that I just created this website and don’t know what to write about. I might just as well document how I created this thing. You can get the source code for the website at &lt;a href=&quot;https://github.com/sb2nov/sb2nov.github.io&quot;&gt;https://github.com/sb2nov/sb2nov.github.io&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 1&lt;/strong&gt; : Create a new github repository &lt;code class=&quot;highlighter-rouge&quot;&gt;username.github.io&lt;/code&gt; in your account.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 2&lt;/strong&gt; : Install Jekyll using the command &lt;code class=&quot;highlighter-rouge&quot;&gt;gem install jekyll&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 3&lt;/strong&gt; : Create the clone of Jekyll bootstrap and set the remote to track the repository you just created.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    git clone https://github.com/plusjade/jekyll-bootstrap.git portfolio
+    cd portfolio
+    git remote set-url origin git@github.com:USERNAME/USERNAME.github.io.git
+    git push origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 4&lt;/strong&gt; : Change and modify your theme using &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Twitter Bootstrap&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 5&lt;/strong&gt; : Create the pages you want using &lt;code class=&quot;highlighter-rouge&quot;&gt;rake page name=&quot;pages/about.html&quot;&lt;/code&gt;, similarly create the other pages as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 6&lt;/strong&gt; : Create your first post using &lt;code class=&quot;highlighter-rouge&quot;&gt;rake post title=&quot;Hello World&quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 7&lt;/strong&gt; : Remove the default example posts &lt;code class=&quot;highlighter-rouge&quot;&gt;rm -rf _posts/core-examples&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 8&lt;/strong&gt; : Edit the &lt;code class=&quot;highlighter-rouge&quot;&gt;index.md&lt;/code&gt; as per requirements.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 9&lt;/strong&gt; : Change the default template as need be, it is located in &lt;code class=&quot;highlighter-rouge&quot;&gt;_include/themes/bootstrap/defaults.html&lt;/code&gt;. I made some style change and removed the buttons and navbar at the side to set my current layout. And I added the links to the pages I had created in the &lt;code class=&quot;highlighter-rouge&quot;&gt;step 5&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 10&lt;/strong&gt; : Just push the source code to the github repository and Github will automatically render it, &lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 11&lt;/strong&gt; : If you find anything wrong in this guide. Please let me know about it.&lt;/p&gt;
+</content>
+</entry>
+
+
+</feed>

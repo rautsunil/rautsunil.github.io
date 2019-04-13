@@ -1,0 +1,33 @@
+highlighter: rouge
+permalink: none
+kramdown:
+  input: GFM
+  hard_wrap: false
+repository: rautsunil/rautsunil.github.io
+plugins:
+  - jemoji
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      permalink: /blog/:year/:month/:day/:title/
+google_analytics: 'UA-40495390-2'
+title: Sunil Raut
+description: Sunil's portfolio and writings on machine learning, data science and distributed systems.
+url: https://rautsunil.github.io
+author: Sunil Raut
+twitter:
+  username: RautsunilSunil
+logo: images/contents/0.png
+social:
+  name: Sunil Raut
+  links:
+    - https://twitter.com/RautsunilSunil
+    - https://www.linkedin.com/in/sunil-raut-3a199858
+    - https://github.com/rautsunil
+    - https://medium.com/@RautsunilSunil
